@@ -4,45 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Subscription Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- The only stylesheet: our own CSS library -->
+  <link rel="stylesheet" href="css/ui-library.css">
 </head>
 <body>
-  <header class="header">
+  <header class="ui-header">
     <h1>Subscription Tracker</h1>
-    <nav class="nav">
-      <a href="#form-section" class="nav-link">Add</a>
-      <a href="#summary-section" class="nav-link">Summary</a>
-      <a href="#table-section" class="nav-link">Subscriptions</a>
+    <nav class="ui-nav">
+      <a href="#form-section" class="ui-nav-link">Add</a>
+      <a href="#summary-section" class="ui-nav-link">Summary</a>
+      <a href="#table-section" class="ui-nav-link">Subscriptions</a>
     </nav>
   </header>
 
-  <main class="container">
+  <main class="ui-container">
 
     <!-- Section 1: Form -->
-    <section id="form-section" class="card page-section">
+    <section id="form-section" class="ui-card ui-section">
       <h2>Add Subscription</h2>
       <form id="subscription-form">
-        <div class="form-group">
+        <div class="ui-form-group">
           <label for="service">Service</label>
           <input type="text" id="service" name="service" required>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group">
           <label for="provider">Provider</label>
           <input type="text" id="provider" name="provider" required>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group">
           <label for="subscriber">Subscriber</label>
           <input type="text" id="subscriber" name="subscriber" required>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group">
           <label for="renewal-date">Renewal date</label>
           <input type="date" id="renewal-date" name="renewalDate" required>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group">
           <label for="category">Category</label>
           <select id="category" name="category" required>
             <option value="">Select a category</option>
@@ -54,42 +56,45 @@
           </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add subscription</button>
+        <button type="submit" class="ui-btn ui-btn-primary">Add subscription</button>
       </form>
     </section>
 
     <!-- Section 2: Summary -->
-    <section id="summary-section" class="card page-section">
+    <section id="summary-section" class="ui-card ui-section">
       <h2>Summary</h2>
-      <div class="summary">
+      <div class="ui-summary">
         <p>Total subscriptions: <strong id="total-count">0</strong></p>
         <p>Expired subscriptions: <strong id="expired-count">0</strong></p>
       </div>
     </section>
 
     <!-- Section 3: Table -->
-    <section id="table-section" class="card page-section">
+    <section id="table-section" class="ui-card ui-section">
       <h2>Subscriptions</h2>
-      <table id="subscription-table" class="table">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Provider</th>
-            <th>Subscriber</th>
-            <th>Renewal date</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="subscription-body">
-          <!-- Rows will be added by JavaScript -->
-        </tbody>
-      </table>
+      <div class="ui-table-wrap">
+        <table id="subscription-table" class="ui-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Subscriber</th>
+              <th>Renewal date</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="subscription-body">
+            <!-- Rows will be added by JavaScript -->
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </main>
 
-  <script src="app.js"></script>
+  <!-- The only script: our own JavaScript library -->
+  <script src="js/subscription-lib.js"></script>
 </body>
 </html>
