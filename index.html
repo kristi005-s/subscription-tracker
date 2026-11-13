@@ -9,12 +9,17 @@
 <body>
   <header class="header">
     <h1>Subscription Tracker</h1>
+    <nav class="nav">
+      <a href="#form-section" class="nav-link">Add</a>
+      <a href="#summary-section" class="nav-link">Summary</a>
+      <a href="#table-section" class="nav-link">Subscriptions</a>
+    </nav>
   </header>
 
   <main class="container">
 
     <!-- Section 1: Form -->
-    <section id="form-section" class="card">
+    <section id="form-section" class="card page-section">
       <h2>Add Subscription</h2>
       <form id="subscription-form">
         <div class="form-group">
@@ -54,7 +59,7 @@
     </section>
 
     <!-- Section 2: Summary -->
-    <section id="summary-section" class="card">
+    <section id="summary-section" class="card page-section">
       <h2>Summary</h2>
       <div class="summary">
         <p>Total subscriptions: <strong id="total-count">0</strong></p>
@@ -63,7 +68,7 @@
     </section>
 
     <!-- Section 3: Table -->
-    <section id="table-section" class="card">
+    <section id="table-section" class="card page-section">
       <h2>Subscriptions</h2>
       <table id="subscription-table" class="table">
         <thead>

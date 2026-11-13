@@ -1,11 +1,12 @@
 /* ==========================================================
    SubscriptionLib: a small JavaScript library
    Methods: getAll, add, remove, isExpired, getStats,
-            render, init
+            render, showSection, init
    ========================================================== */
 
 const SubscriptionLib = (function () {
   const STORAGE_KEY = "subscriptions";
+  const DEFAULT_SECTION = "form-section";
 
   /* ---------- Storage ---------- */
   function getAll() {
@@ -122,6 +123,25 @@ const SubscriptionLib = (function () {
     document.getElementById("expired-count").textContent = stats.expired;
   }
 
+  /* ---------- Navigation ---------- */
+  function showSection() {
+    const sections = document.querySelectorAll(".page-section");
+    const ids = Array.from(sections).map((section) => section.id);
+
+    let id = window.location.hash.slice(1);
+    if (!ids.includes(id)) {
+      id = DEFAULT_SECTION;
+    }
+
+    sections.forEach((section) => {
+      section.classList.toggle("active", section.id === id);
+    });
+
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+    });
+  }
+
   /* ---------- Setup ---------- */
   function init() {
     const form = document.getElementById("subscription-form");
@@ -139,13 +159,16 @@ const SubscriptionLib = (function () {
 
       form.reset();
       render();
+      window.location.hash = "table-section";
     });
 
+    showSection();
+    window.addEventListener("hashchange", showSection);
     render();
   }
 
   // Public methods
-  return { getAll, add, remove, isExpired, getStats, render, init };
+  return { getAll, add, remove, isExpired, getStats, render, showSection, init };
 })();
 
 SubscriptionLib.init();
