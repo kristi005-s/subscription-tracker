@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summary | Subscription Tracker</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kristi005-s/subscription-tracker@v1.0.0/css/ui-library.css">
+</head>
+<body>
+  <header class="ui-header">
+    <h1>Subscription Tracker</h1>
+    <nav class="ui-nav">
+      <a href="add.html" class="ui-nav-link">Add</a>
+      <a href="index.html" class="ui-nav-link">Subscriptions</a>
+      <a href="summary.html" class="ui-nav-link is-active">Summary</a>
+    </nav>
+  </header>
+
+  <main class="ui-container">
+
+    <section id="summary-section" class="ui-card">
+      <h2>Summary</h2>
+      <div class="ui-summary">
+        <p>Total subscriptions: <strong id="total-count">0</strong></p>
+        <p>Expired subscriptions: <strong id="expired-count">0</strong></p>
+      </div>
+    </section>
+
+    <!-- Hidden: the library's render() needs this element to exist -->
+    <table hidden>
+      <tbody id="subscription-body"></tbody>
+    </table>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/gh/kristi005-s/subscription-tracker@v1.0.0/js/subscription-lib.js"></script>
+  <script>SubscriptionLib.render();</script>
+</body>
+</html>
